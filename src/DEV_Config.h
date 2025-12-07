@@ -113,8 +113,19 @@
    #define EPD_RST_PIN  12
    #define EPD_DC_PIN   11
    #define EPD_BUSY_PIN 13
+
+#elif defined(BOARD_ARDUINO_NANO_ESP32)
+   // Pin definition for Arduino Nano ESP32
+   // Using Waveshare e-Paper HAT Rev 2.3 connection
+   // D13=GPIO48, D11=GPIO38, D10=GPIO21, D9=GPIO18, D8=GPIO17, D7=GPIO10
+   #define EPD_SCK_PIN  48
+   #define EPD_MOSI_PIN 38
+   #define EPD_CS_PIN   21
+   #define EPD_RST_PIN  17
+   #define EPD_DC_PIN   18
+   #define EPD_BUSY_PIN 10
 #else
-   #error "Board type not defined. Please define BOARD_WAVESHARE_ESP32_DRIVER or BOARD_TRMNL or BOARD_SEEED_XIAO_ESP32C3 or BOARD_SEEED_XIAO_ESP32S3 in platformio.ini build_flags."
+   #error "Board type not defined. Please define BOARD_WAVESHARE_ESP32_DRIVER, BOARD_TRMNL, BOARD_SEEED_XIAO_ESP32C3, BOARD_SEEED_XIAO_ESP32S3, BOARD_ARDUINO_NANO_ESP32, etc. in platformio.ini build_flags."
 #endif
 
 #define GPIO_PIN_SET   1
